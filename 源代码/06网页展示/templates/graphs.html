@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<form class="form-models" method="post" action='/datasets/{{dataset}}/graphprocess/'>
+  <h2 class="form-models-heading" align'center'>可视化</h2>
+  <div class="row">
+  <div class="col-sm-3">
+	<h3>直方图:</h3>
+	<select name="histogram">
+        <option value=""></option>
+        {% for mod in columns %}
+			<option value="{{mod}}">{{mod}}</option>       
+		{% endfor %}
+	</select>
+	</div>
+  <div class="col-sm-4">
+  <h3>饼图:</h3>
+  <select name="pie">
+        <option value=""></option>
+        {% for mod in columns %}
+      <option value="{{mod}}">{{mod}}</option>       
+    {% endfor %}
+  </select>
+  </div>
+  <div class="col-sm-4">
+  <h3>柱状图:</h3>
+  <select multiple name="bar">
+        <option value=""></option>
+        {% for mod in columns %}
+      <option value="{{mod}}">{{mod}}</option>       
+    {% endfor %}
+  </select>
+  </div>
+  </div>
+  <br>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">结果</button>
+</form>
+</div>
+{% endblock %}
+

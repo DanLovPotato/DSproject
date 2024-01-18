@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<h1 align='center'>选择数据集!</h1>
+<h2 align='center'>原始数据集</h2>
+{% for ds in originalds %}
+<h3 align='center'><a href='datasets/{{ds}}'>{{ds}}</a></h3>
+{% endfor %}
+</br>
+<h2 align='center'>上传自己的数据集:</h2>
+<div align='center'>
+<form action = "http://127.0.0.1:5000/" method = "POST" 
+         enctype = "multipart/form-data" align='center'>
+         <input type = "file" name = "file" align='center'>
+         <input type = "submit" align='center' value="上传">
+</form></div>
+</div>
+{% endblock %}

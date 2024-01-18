@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<form class="form-models" method="post" action='/datasets/{{dataset}}/modelargs1/'>
+  <h2 class="form-models-heading" align='center'>选择模型算法</h2>
+  <div class="row">
+   
+  <div class="col-sm-3">
+  <h3>算法</h3>
+  <select name="model">
+		<optgroup label="分类">
+        {% for mod in clfmodels %}
+			<option value="{{mod}}.Classification">{{mod}}</option>       
+		{% endfor %}
+		</optgroup>
+		<optgroup label="回归">
+		{% for mod in predmodels %}
+			<option value="{{mod}}.Regression">{{mod}}</option>       
+		{% endfor %}
+		</optgroup>
+
+  </select>
+  </div>
+  
+
+ 
+  <div class="col-sm-3">
+  <h3 class="form-models-heading">调参范围</h3>
+  <input type="text" name="args">
+   {{args}}<br>
+  </div>
+   </div></br>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" align='center'>调参结果</button>
+  </br>
+</form>
+</div>
+{% endblock %}

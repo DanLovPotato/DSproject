@@ -1,0 +1,28 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+	{% if dataset %}
+	Cool Science - Dataset: {{ dataset }}
+	{% else %}
+	Cool Science
+	{% endif %}
+{% endblock %}
+
+{% block navbar %}
+	{% if dataset %}
+	<div class="container">
+    <nav class="navbar navbar-default">
+	<h1 align='center'>数据集: {{ dataset }}</h1>
+	<h4 align='center'>数据 <a href="/">家园</a>
+	--- 数据集: 
+	<a href="/datasets/{{dataset}}">描述性分析</a> |
+	<a href="/datasets/{{dataset}}/graphs">可视化</a> |
+	<a href="/datasets/{{dataset}}/models">模型</a> |
+	<a href="/datasets/{{dataset}}/modelargs">调参</a> |
+	<a href="/datasets/{{dataset}}/predict">预测</a></h4>
+	</nav>
+	</div>
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
